@@ -1,0 +1,51 @@
+:root{
+  --bg:#fafafa; --card:#ffffff; --muted:#000000; --accent:#1f6feb;
+  --glass: rgba(0, 0, 0, 0.6);
+}
+body.light{ background: var(--bg); color:#111; }
+body.dark{
+  --bg:#0b0f14; --card:#0f1720; --muted:#000000; --accent:#7cc4ff; --glass: rgba(255,255,255,0.03);
+  background: linear-gradient(180deg,#051018 0%, #07121a 100%); color:#e6eef8;
+}
+body{ font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; transition: background 300ms ease, color 300ms ease; }
+
+/* NAV / HERO */
+.navbar { background: transparent !important; }
+.hero{
+  height:240px; position:relative; margin-bottom:1.5rem; overflow:hidden;
+  display:block; background-image: url('https://source.unsplash.com/1600x600/?gourmet,food'); background-size:cover; background-position:center;
+}
+.hero .overlay{ position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.45)); }
+.hero .hero-content{ position:relative; z-index:3; padding:3rem 1rem; }
+.hero h1{ letter-spacing:0.6px; text-shadow:0 6px 20px rgba(0,0,0,0.4); }
+
+/* CARDS */
+.recipe-card .card{ border-radius:14px; overflow:hidden; transition: transform .22s cubic-bezier(.2,.9,.2,1), box-shadow .22s; }
+.recipe-card .card:hover{ transform: translateY(-8px) scale(1.01); box-shadow: 0 20px 40px rgba(2,6,23,0.15); }
+.card-img-top-wrapper{ position:relative; overflow:hidden; height:200px; }
+.card-img-top{ width:100%; height:100%; object-fit:cover; display:block; transition: transform .6s ease; }
+.card:hover .card-img-top{ transform: scale(1.06) rotate(.5deg); filter: saturate(1.05) contrast(1.02); }
+
+/* Favorite button over image */
+.fav-btn{ position:absolute; top:10px; right:10px; z-index:5; background:rgba(255,255,255,0.9); border-radius:50%; width:38px; height:38px; display:flex; align-items:center; justify-content:center; border:none; transition: transform .12s; }
+.fav-btn i{ color:#ffb400; font-size:18px; opacity:.45; transition: opacity .12s; }
+.fav-btn.active{ transform: scale(1.08); background:var(--accent); }
+.fav-btn.active i{ color:#fff; opacity:1; }
+
+/* Modal */
+#modalImage{ background-size:cover; background-position:center; min-height:220px; border-radius:8px; }
+#stepBox{ min-height:90px; }
+
+/* Buttons */
+.btn-outline-success{ border-radius:10px; }
+.view-btn{ border-radius:10px; }
+
+/* accessibility small tweaks */
+.badge{ font-size:12px; }
+
+/* responsive */
+@media (max-width:767px){
+  .hero{ height:180px; }
+  .card-img-top-wrapper{ height:160px; }
+  #modalImage{ display:none !important; }
+}
